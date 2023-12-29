@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Wyze bulbs</title>
+  </head>
+  <body>
+
+      <h3>Office</h3>
+      <a onclick="UpdateBulb('office', 'on')" href="#">On</a>
+      <a onclick="UpdateBulb('office', 'off')" href="#">Off</a>
+
+      <h3>Hallway 1</h3>
+      <a onclick="UpdateBulb('hallway1', 'on')" href="#">On</a>
+      <a onclick="UpdateBulb('hallway1', 'off')" href="#">Off</a>
+
+      <h3>Hallway 2</h3>
+      <a onclick="UpdateBulb('hallway2', 'on')" href="#">On</a>
+      <a onclick="UpdateBulb('hallway2', 'off')" href="#">Off</a>      
+
+      <script>
+        function UpdateBulb(label, mode) {
+          fetch('https://eoe23x0a50gptih.m.pipedream.net', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application.json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              "bulb_label": label,
+              "mode": mode  
+            }),
+          })          
+        }
+      </script>
+
+  </body>
+</html>
